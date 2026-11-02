@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # SafeHer – Women's Safety & Emergency Response System
 
 > **A University Internet Programming Capstone Project**  
@@ -289,3 +290,6 @@ SafeHer requires **HTTPS** in production so that service workers, geolocation, a
 
 ## 10. License & Academic Attribution
 Developed as an Internet Programming University Capstone Project. SafeHer is released under the **MIT License**.
+=======
+# SafeHer
+>>>>>>> 5c8394ece5cb3c5e9cbc11120f5d297889847411
