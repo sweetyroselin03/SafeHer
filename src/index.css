@@ -1,0 +1,143 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --primary: #5B214C;
+    --primary-light: #7A2D66;
+    --primary-dark: #3F1434;
+    --emergency: #E53945;
+    --emergency-glow: rgba(229, 57, 69, 0.45);
+    --secondary: #F7DDE7;
+    --background: #FFF9FB;
+    --surface: #FFFFFF;
+    --text-dark: #241B28;
+    --text-muted: #746B77;
+    --success: #17865D;
+    --warning: #E9A23B;
+  }
+
+  .dark {
+    --primary: #C773B1;
+    --primary-light: #DF90CA;
+    --primary-dark: #2A1125;
+    --emergency: #FF5260;
+    --emergency-glow: rgba(255, 82, 96, 0.55);
+    --secondary: #3D2336;
+    --background: #140D17;
+    --surface: #1E1423;
+    --text-dark: #F7F3F8;
+    --text-muted: #AFA5B4;
+    --success: #2CD69A;
+    --warning: #F5B853;
+  }
+
+  * {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--text-dark);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+}
+
+/* Animations */
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.92);
+    box-shadow: 0 0 0 0 rgba(229, 57, 69, 0.7);
+  }
+  70% {
+    transform: scale(1.04);
+    box-shadow: 0 0 0 28px rgba(229, 57, 69, 0);
+  }
+  100% {
+    transform: scale(0.92);
+    box-shadow: 0 0 0 0 rgba(229, 57, 69, 0);
+  }
+}
+
+@keyframes pulse-ring-intense {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(229, 57, 69, 0.85);
+  }
+  50% {
+    transform: scale(1.08);
+    box-shadow: 0 0 0 45px rgba(229, 57, 69, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(229, 57, 69, 0);
+  }
+}
+
+@keyframes strobe-flash {
+  0%, 49% {
+    background-color: #E53945;
+    color: #FFFFFF;
+  }
+  50%, 100% {
+    background-color: #FFFFFF;
+    color: #E53945;
+  }
+}
+
+@keyframes audio-wave {
+  0%, 100% {
+    height: 6px;
+  }
+  50% {
+    height: 38px;
+  }
+}
+
+@keyframes call-vibrate {
+  0%, 100% { transform: translateY(0); }
+  20% { transform: translateY(-3px) rotate(-1.5deg); }
+  40% { transform: translateY(3px) rotate(1.5deg); }
+  60% { transform: translateY(-2px) rotate(-1deg); }
+  80% { transform: translateY(2px) rotate(1deg); }
+}
+
+.animate-pulse-ring {
+  animation: pulse-ring 2.2s cubic-bezier(0.24, 0, 0.38, 1) infinite;
+}
+
+.animate-pulse-ring-intense {
+  animation: pulse-ring-intense 1.2s cubic-bezier(0.24, 0, 0.38, 1) infinite;
+}
+
+.animate-strobe {
+  animation: strobe-flash 0.5s steps(1) infinite;
+}
+
+.animate-call-vibrate {
+  animation: call-vibrate 0.6s ease-in-out infinite;
+}
+
+/* Glassmorphism utility */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.dark .glass-panel {
+  background: rgba(30, 20, 35, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* Reduced motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .animate-pulse-ring,
+  .animate-pulse-ring-intense,
+  .animate-strobe,
+  .animate-call-vibrate {
+    animation: none !important;
+  }
+}
